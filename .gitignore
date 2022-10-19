@@ -1,0 +1,10 @@
+.idea/
+db.sqlite3
+__pycache__/
+venv
+SignatureFinal2022/.env
+myx509/migrations/__pycache__/
+SignatureF/__pycache__/
+web/migrations/__pycache__/
+myx509/__pycache__/
+web/__pycache__/

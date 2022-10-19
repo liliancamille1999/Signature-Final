@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Piazzolla:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;1,700&family=Ubuntu:wght@300;400;500;700&display=swap");
+
+.redressed{
+    font-family: "Redressed", cursive;
+}
+
+/*body{
+    color:black;
+    background: white url('../img/signature-electronique-1.jpg') left no-repeat;
+    margin:0;
+}*/
+
+
+.merriweather{
+    font-family: "Merriweather",serif;
+}
+.cc-navbar{
+    background-color: rgba(255,255,255,0.4);
+    font-family: "Merriweather",serif;
+    box-shadow: 1px 1px 3px rgba(0,129,194, 0.54);
+}
+
+.cc-navbar .nav-link{
+    botter-bottom:1px solid transparent;
+    transition: padding-bottom .4s ease-in-out, border-color .3s ease;
+}
+
+.cc-navbar .nav-link:hover {
+    padding-bottom: 20px;
+    border-bottom-color: var(--bs-teal);
+}
+
+/*.banner{
+    background:  url('../img/securite.png') left no-repeat;
+    height: 600px;
+}*/
+
+.banner .banner-desc{
+    font-size: 30px;
+    font-weight: 400;
+    color: #000000;
+}
+
+.btn-order{
+    color: var(--bs-teal);
+    border-color:var(--bs-teal);
+    transition: 0.5s;
+}
+
+.btn-order:hover,
+.btn-order:active{
+color: #fff;
+
+}

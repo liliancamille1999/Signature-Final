@@ -1,0 +1,423 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DocSign</title>
+
+    <!-- Font awesome link (Lien externe pour les icones) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+          integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+          crossorigin="anonymous"/>
+
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"
+          integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/boxicons.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+
+</head>
+<body data-bs-spy="scroll" data-bs-target=".navbar">
+
+<!-- TOP NAV -->
+<div class="top-nav" id="accueil">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-auto">
+                <p><i class='bx bxs-envelope'></i> Liliancamille1@gmail.com</p>
+                <p><i class='bx bxs-phone-call'></i> (237) 695979253</p>
+            </div>
+            <div class="col-auto social-icons">
+                <a href="#"><i class='bx bxl-facebook'></i></a>
+                <a href="#"><i class='bx bxl-twitter'></i></a>
+                <a href="#"><i class='bx bxl-instagram'></i></a>
+                <a href="#"><i class='bx bxl-pinterest'></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">DocSign<span class="dot">.</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <strong>{{ message }}</strong>
+
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#accueil">Accueil</a>
+                </li>
+
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#profil">Profil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#signature">Signature</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#vos documents">Vos Documents</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#team">Team</a>
+                    </li>
+                {% endif %}
+            </ul>
+            {% if user.is_authenticated %}
+                <a href="{% url 'deconnexion' %}" class="btn btn-brand ms-lg-3">Deconnexion</a>
+            {% else %}
+                <a href="{% url 'login' %}" class="btn btn-brand ms-lg-3">Connexion</a>
+            {% endif %}
+
+        </div>
+    </div>
+</nav>
+
+<!-- SLIDER -->
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active data-bs-interval='4000'">
+            <div class="slide1 min-vh-100 bg-cover d-flex align-items-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 text-center text-white">
+                            <h6 class="text-white text-uppercase">digital signature - get ready.</h6>
+                            <h1 class="display-3 my-4 text-uppercase">digital signature innovate<br/>your world.</h1>
+                            {% if user.is_authenticated %}
+                                <a href="#signature" class="btn btn-brand">Sign Now</a>
+                                <a href="#" style="color: #FFFFFF" class="btn btn-dark btn-outline-success ms-3">Your
+                                    Documents</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item data-bs-interval='4000'">
+            <div class="slide2 min-vh-100 bg-cover d-flex align-items-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-lg-10 offset-lg-1 text-white">
+                            <h6 class="text-white text-uppercase">Fall Into The data security.</h6>
+                            <h1 class="display-3 my-4">We Don't Make Signature.<br/>We Make Signature Better.</h1>
+                            {% if user.is_authenticated %}
+                                <a href="#signature" class="btn btn-brand">Sign Now</a>
+                                <a href="#" class="btn btn-outline-light ms-3">Your Profile</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+
+<!-- PROFILE -->
+
+{% if user.is_authenticated %}
+    <section id="profil">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-12 intro text-center">
+                    <h4>Profil</h4>
+                </div>
+                <div class="col-lg-5 py-5">
+                    <div class="row">
+                        <div class="appointment-form">
+                            <h3><span>+</span> Votre Profil</h3>
+                            <div class="form ">
+                                <div style="color: #092032" class="">
+                                    <div class="row py-3">
+                                        <label for="inputPassword3" style="text-align: left;width: 115px"
+                                               class="col-sm-2 col-form-label"><u> Nom :</u></label>
+                                        <input type="text" class="form-control form-control-sm" id="colFormLabelSm"
+                                               style="width: 225px;height: 1px" disabled value="{{ Personne.Nom }}">
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label for="inputPassword3" style="text-align: left;width: 115px"
+                                               class="col-sm-2 col-form-label"><u> Prenom :</u></label>
+                                        <input type="text" class="form-control form-control-sm" id="colFormLabelSm"
+                                               style="width: 225px;height: 1px" disabled value="{{ Personne.Prenom }}">
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label for="inputPassword3" style="width:115px;text-align: left"
+                                               class="col-sm-2 col-form-label"><u> Entreprise :</u></label>
+                                        <input type="text" class="form-control form-control-sm" id="colFormLabelSm"
+                                               style="width: 225px;height: 1px" disabled value="{{ entreprise.NomE }}">
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label for="inputPassword3" style="width:115px;text-align: left"
+                                               class="col-sm-2 col-form-label"><u> Date de Nai :</u></label>
+                                        <input type="text" class="form-control form-control-sm" id="colFormLabelSm"
+                                               style="width: 225px;height: 1px" disabled
+                                               value="{{ Personne.Date_naissance }}">
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label for="inputPassword3" style="width:115px;text-align: left"
+                                               class="col-sm-2 col-form-label"><u> Email :</u></label>
+                                        <input type="text" class="form-control form-control-sm" id="colFormLabelSm"
+                                               style="width: 225px;height: 1px" disabled value="{{ Personne.email }}">
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label for="inputPassword3" style="width:115px;text-align: left"
+                                               class="col-sm-2 col-form-label"><u> Telephone :</u></label>
+                                        <input type="text" class="form-control form-control-sm" id="colFormLabelSm"
+                                               style="width: 225px;height: 1px" disabled value="{{ Personne.tel }}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <img src="{% static 'img/about.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- SIGNATURE -->
+    <section id="signature">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-12 intro text-center">
+                    <h4>Signature</h4>
+                </div>
+                <div class="col-lg-5 py-5">
+                    <div class="row">
+
+                        <div class="col-12">
+                            <div class="info-box mt-4 ">
+                                <img src="{% static 'img/icon7.png' %}" alt="">
+                                <div class="">
+                                    <h5>Sécurité Des Données</h5>
+                                    <p>Elle designe l'ensemble des moyens mis en œuvre pour empêcher la corruption des
+                                        données. </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 ">
+                            <div class="info-box mt-4">
+                                <img src="{% static 'img/icon14.png' %}" alt="">
+                                <div class="">
+                                    <h5>Signature Numerique</h5>
+                                    <p>mécanisme permettant de garantir la non-répudiation d'un document électronique et
+                                        d'en authentifier l'auteur.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-4">
+                            <div class="info-box">
+                                <img src="{% static 'img/icon10 .png' %}" alt="">
+                                <div class="">
+                                    <h5>Buisness Marketing</h5>
+                                    <p>It is a long-established fact that a reader will be distracted by the readable
+                                        content of a page </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="appointment-form">
+                        <h3><span>+</span> Signer Votre Document</h3>
+                        <div class="form ">
+                            <form method="post" enctype="multipart/form-data" action="/signer">{% csrf_token %}
+                                <fieldset>
+                                    <div style="color: #092032">
+                                        <div class="row py-3">
+                                            <label for="inputPassword3" style="text-align: left;width: 115px"
+                                                   class="col-sm-2 col-form-label"><u> Nom :</u></label>
+                                            <input type="text" class="form-control form-control-sm" id="colFormLabelSm"
+                                                   style="width: 225px;height: 1px" disabled value="{{ Personne.Nom }}">
+                                        </div>
+                                        <div class="row mb-3">
+                                            <label for="inputPassword3" style="text-align: left;width: 115px"
+                                                   class="col-sm-2 col-form-label"><u> Prenom :</u></label>
+                                            <input type="text" class="form-control form-control-sm" id="colFormLabelSm"
+                                                   style="width: 225px;height: 1px" disabled
+                                                   value="{{ Personne.Prenom }}">
+                                        </div>
+                                        <div class="row mb-3">
+                                            <label for="inputPassword3" style="width:115px;text-align: left"
+                                                   class="col-sm-2 col-form-label"><u> Entreprise :</u></label>
+                                            <input type="text" class="form-control form-control-sm" id="colFormLabelSm"
+                                                   style="width: 225px;height: 1px" disabled
+                                                   value="{{ entreprise.NomE }}">
+                                        </div>
+                                        <div class="row mb-3">
+                                            <label for="inputPassword3" style="width:115px; text-align: left"
+                                                   class="col-sm-2 col-form-label"><u> Passphrase :</u></label>
+                                            <input type="password" class="form-control form-control-sm"
+                                                   id="colFormLabelSm"
+                                                   name="mot_de_passe" style="width: 225px;height: 1px"
+                                                   placeholder="Veuillez entrer votre Passphrase" required>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <label for="formFileSm" style="width:115px;text-align: left"
+                                                   class="form-label"><u>Fichiers :</u></label>
+                                            <input name="media" class="form-control form-control-sm"
+                                                   style="width: 225px;height: 1px" id="formFileSm" type="file"
+                                                   required>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <div class="center">
+                                                    <button type="submit"> Signer</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MILESTONE -->
+    <section id="milestone">
+        <div class="container">
+            <div class="row text-center justify-content-center gy-4">
+                <div class="col-lg-2 col-sm-6">
+                    <h1 class="display-4">90K+</h1>
+                    <p class="mb-0">Clients</p>
+                </div>
+                <div class="col-lg-2 col-sm-6">
+                    <h1 class="display-4">45M</h1>
+                    <p class="mb-0">Lines of code</p>
+                </div>
+                <div class="col-lg-2 col-sm-6">
+                    <h1 class="display-4">190</h1>
+                    <p class="mb-0">Total Documents Signes</p>
+                </div>
+                <div class="col-lg-2 col-sm-6">
+                    <h1 class="display-4">380K</h1>
+                    <p class="mb-0">YouTube Subscribers</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documents -->
+    <section id="vos documents">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-12 intro text-center">
+                    <h4>Vos Documents</h4>
+                </div>
+                <div class="col-lg-5 py-5">
+                    <div class="row">
+
+                        <div class="col-12">
+                            <div class="info-box mt-4 ">
+                                <img src="{% static 'img/icone.png' %}" alt="">
+                                <div class="">
+                                    <h5>Telecharger Vos Documents</h5>
+                                    <p>Telecharger vos documents signes sous forme de fichier Pdf et les envoyer sans crainte qu'ils soient falsifies.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 ">
+                            <div class="info-box mt-4">
+                                <img src="{% static 'img/icon10 .png' %}" alt="">
+                                <div class="">
+                                    <h5>Verification Des Donnees</h5>
+                                    <p>Faire scanner le QRcode de vos documents a l'aide de DocSign app.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="justify-content-center col-sm-6 col-xs-12">
+                    <div class="appointment-form1">
+                        <h3 class="mb-3"><span>+</span> Vos Documents signes</h3>
+                        <div class="container ">
+                            <div class="row justify-content-center">
+                                <div class="">
+                                    <div class="card mb-2">
+                                        <div class="card-body" style="overflow:scroll; width: 500px; height: 400px;">
+
+                                            <table class="table">
+                                                <thead>
+                                                <tr>
+                                                    <th>Id</th>
+                                                    <th>Nom</th>
+                                                    <th>Date de Signature</th>
+                                                    <th>Download</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody style="height: 100px">
+                                                {% for Document in Document %}
+                                                    <tr>
+                                                        <td>{{ Document.id }}</td>
+                                                        <td>{{ Document.media_nom }}</td>
+                                                        <td>{{ Document.date_signature }}</td>
+                                                        <td>
+                                                            <a href="{{ Document.media_signe.url }}"
+                                                               class="btn btn-primary btn-sm"
+                                                               target="_blank">
+                                                                Download
+                                                            </a>
+                                                        </td>
+
+                                                    </tr>
+                                                {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endif %}
+
+
+<script src="{% static 'js/app.js' %}"></script>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
+body{
+    font-family: "Barlow", sans-serif;
+    line-height: 1.7;
+    color:#516171;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-weight: 700 !important;
+    color: #092032;
+}
+
+a {
+    color: #092032;
+    text-decoration: none;
+    transition: all 0.4s ease;
+}
+
+img {
+    width: 100%;
+}
+
+section{
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.bg-cover {
+    background-position: center !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+/* Navbar */
+
+.top-nav{
+    background-color: #ff4d29;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.top-nav p{
+    margin-bottom: 0;
+    display: inline-block;
+    margin-right: 16px;
+    color: #FFFFFF;
+}
+
+.top-nav i,
+.top-nav span{
+    vertical-align: middle;
+}
+.social-icons a{
+    width: 34px;
+    height: 34px;
+    background-color: rgba(255,255,255,0.4);
+    display: inline-flex;;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-size: 20px;
+    border-radius: 100%;
+}
+
+.social-icons a:hover{
+    background-color: #FFFFFF;
+    color: #ff4d29;
+}
+
+.navbar {
+    box-shadow: 0px 6px 30px rgba(0,0,0,0.08);
+}
+
+
+.navbar .navbar-nav .nav-link:hover
+{
+    color: #ff4d29;
+}
+.navbar .navbar-nav .nav-link.active {
+    color: #ff4d29;
+}
+
+.navbar-brand{
+    font-weight: 700;
+    font-size: 26px;
+    color: #092032;
+}
+
+.navbar-brand span{
+    color: #ff4d29;
+}
+
+/* BTN */
+
+.btn{
+    padding: 9px 24px;
+    font-weight: 400;
+}
+
+.btn-brand {
+    background-color: #ff4d29;
+    color: #FFFFFF;
+    border-color: #ff4d29;
+}
+
+.btn-brand:hover{
+    color: #FFFFFF;
+    background-color: #e04122;
+}
+
+
+/* Slider */
+
+.slide1 {
+ background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/25493309.webp");
+}
+
+.slide2 {
+ background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/qr-code.jpg");
+}
+
+/* A PROPOS */
+.info-box{
+    display: flex;
+    align-items: center;
+}
+.info-box img {
+    width: 90px;
+    margin-right: 24px;
+}
+
+/* MILESTONE */
+
+#milestone{
+    background: linear-gradient(rgba(255, 77, 41, 0.85), rgba(255, 77, 41, 0.85)), url('../img/bgbanner1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#milestone h1,
+#milestone p {
+    color: #fff;
+}
+/* SIGNATURE */
+
+.appointment-form {
+    float: left;
+    width: 365px;
+    background: #fff;
+    min-height: 360px;
+    box-shadow: 0 0 50px -22px rgba(0,0,0,0.3);
+    padding: 20px;
+}
+.appointment-form h3 {
+    float: left;
+    margin: 0;
+    background: linear-gradient(to right, #e04122 0%, #1d86df 100%);
+    width: 100%;
+    color: #fff;
+    padding: 15px 25px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.appointment-form .form {
+    float: left;
+}
+
+
+.form-group {
+    float: left;
+    width: 100%;
+    margin: 0;
+}
+.center {
+    float: left;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+}
+.form-group button {
+    background: linear-gradient(to right, #e04122 0%, #1d86df 100%);
+    border: none;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: #fff;
+    padding: 8px 30px;
+    border-radius: 50px;
+    transition: ease all 1s;
+    font-weight: 600;
+}
+.form-group button:hover,.form-group button:focus {
+    background: linear-gradient(to right, #e04122 0%, #39b49a 100%);
+}
+
+/* SERVICE */
+
+.intro {
+    margin-bottom: 40px;
+}
+
+.intro h4{
+    font-family: "Satisfy";
+    font-weight: 700;
+    color: #092032;
+}
+
+/* Document */
+
+.appointment-form1 {
+    float: left;
+    background: #fff;
+    min-height: 360px;
+    box-shadow: 0 0 50px -22px rgba(0,0,0,0.3);
+    padding: 20px;
+}
+.appointment-form1 h3 {
+    float: left;
+    margin: 0;
+    background: linear-gradient(to right, #e04122 0%, #1d86df 100%);
+    width: 100%;
+    color: #fff;
+    padding: 15px 25px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.appointment-form1 .form {
+    float: left;
+}
