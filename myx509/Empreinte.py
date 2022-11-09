@@ -26,9 +26,9 @@ class DigitalSignature:
         return sign
 
     def verify(self, id_p, sign, dat):
-        personne = Personne.objects.get(user_id=id_p)
-        id_Per = personne.id
-        Certificat = Cert.objects.get(personne_id=id_Per)
+        #personne = Personne.objects.get(user_id=id_p)
+        #id_Per = personne.id
+        Certificat = Cert.objects.get(ca_id=id_p)
         Certificat_P = Certificat.certificate
         Certificat_en_claire = crypto.load_certificate(crypto.FILETYPE_PEM, Certificat_P)
         try:

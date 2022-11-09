@@ -1,4 +1,5 @@
 import base64
+from binascii import Error
 from datetime import datetime
 
 import qrcode
@@ -8,7 +9,7 @@ from django.http import Http404
 from django.shortcuts import render
 from reportlab.lib.utils import ImageReader
 from reportlab.pdfgen import canvas
-from rest_framework import viewsets
+from rest_framework import viewsets, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -50,22 +51,28 @@ class verifList(APIView):
         return Response(serializer.data)
 
     def post(self, request, *args, **kwargs):
+        error=""
         data = request.data
         # sign = '1Zazc8T+GBFCXMYq/VHMVETpsKGimbqY1Zb0yEzIZ7V78YwLDzCm/q8tahNm6XHPlJvWpoMB8T/QRynGTxN0AGLwZ9grVBUF75CcuzLr4nX5gEAgJqEHM+VWpWUltqxey0NSLl8HR2n0Ep/Ln2l0ec7MnFhXn9g30w0S9qc/XeYiyLOIhcZXr1ivQIIHagkXSfbIJL/mSWFsWjiCwXJp9iecJAylAsV5SrnGWewUJyfdqJYccIfL+Eh3f68JPy55YC/aXL/kya0bwG4OL3KhODGB7Qo1nrFRgrnlrE/ppTd+mu/5pxbkXJl4nJKsORtsHrA3zTl+5JixJQPYX7aB0Q=='
         sign = data['signature']
         signe = bytes(sign, encoding='utf-8')
         print(signe)
-        signe4 = base64.b64decode(signe)
-        fichier = DocSign.objects.filter(id=data['id_doc'])
-        fichier2 = DocSign.objects.get(id=data['id_doc'])
-        fiche1 = fichier2.media
-        doc = fiche1.read()
-        file = base64.b64encode(doc)
-        test = DigitalSignature.verify(DigitalSignature, data['Cert'], signe4, file)
-        note = VerifSign.objects.create(verif=test)
-        note.document.set(fichier)
-        serializer = VerifSerializers(note, many=False)
-        return Response(serializer.data)
+        try:
+           signe4 = base64.b64decode(signe)
+           fichier = DocSign.objects.filter(id=data['id_doc'])
+           fichier2 = DocSign.objects.get(id=data['id_doc'])
+           fiche1 = fichier2.media
+           doc = fiche1.read()
+           file = base64.b64encode(doc)
+           test = DigitalSignature.verify(DigitalSignature, data['Cert'], signe4, file)
+           note = VerifSign.objects.create(verif=test)
+           note.document.set(fichier)
+           serializer = VerifSerializers(note, many=False)
+           return Response(serializer.data)
+        except Error:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
+
+
 
 
 class PersonneList(viewsets.ModelViewSet):
