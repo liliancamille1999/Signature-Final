@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 import os.path
 from pathlib import Path
+
+from django.contrib.admin import AdminSite
+
 from .info import *
 import django
 from django.utils.encoding import force_str
@@ -166,3 +169,5 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny',
     ]
 }
+
+AdminSite.site_header = 'DocSign Admininistration'
